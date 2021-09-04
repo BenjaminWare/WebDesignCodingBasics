@@ -1,0 +1,41 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+#important {
+    background-color:red;
+}
+h1 {
+    font-size:20px;
+    color:blue;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:bold;
+    font-style:italic;
+    text-align:center;
+}
+h1:hover {
+    color:coral;
+}
+.square {
+    background-color:blue;
+    width:100%;
+    height:100%;
+    padding:100px;
+    border:black 75px solid;
+    opacity:0.6;
+    margin:auto;
+    display:block;
+}
+.parent {
+    background-color:aqua;
+    width:500px;
+    height: 500px;
+    margin: auto;
+}
+.square2 {
+    background-color:orangered;
+    width:50%;
+    height:50%;
+    margin:15vw auto;
+}
