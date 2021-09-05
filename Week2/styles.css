@@ -1,7 +1,6 @@
 * {
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 #important {
     background-color:red;
@@ -17,25 +16,41 @@ h1 {
 h1:hover {
     color:coral;
 }
-.square {
-    background-color:blue;
+
+.square1 {
+    /*talk about width height, do percentages and vw vh*/
+    width:200px;
+    height:200px;
+    /*Focus on this static,relative,absolute,fixed,sticky */
+    position:static;
+    background-color:red;
+    left:1000px;
+    top:0px;
+}
+body {
+    height:200vh;
+}
+.block {
+    display:block;
+    height:200px;
+}
+.inline {
+    display:inline;
+    height:200px;
+}
+.parent {
+    width:500px;
+    height:500px;
+    margin:200px;
+    background-color:coral;
+}
+.square2 {
     width:100%;
     height:100%;
     padding:100px;
-    border:black 75px solid;
-    opacity:0.6;
-    margin:auto;
-    display:block;
-}
-.parent {
-    background-color:aqua;
-    width:500px;
-    height: 500px;
-    margin: auto;
-}
-.square2 {
-    background-color:orangered;
-    width:50%;
-    height:50%;
-    margin:15vw auto;
+    border:20px green solid;
+    background-color:cyan;
+    opacity:0.5;
+    /*add in after talking about padding, add to css reset*/
+    box-sizing:border-box;
 }
