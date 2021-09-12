@@ -1,0 +1,51 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    background-color:#333;
+}
+nav ul{
+    margin:16px;
+    list-style-type:none;
+    color:white;
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns:1fr 200px 200px 200px;
+}
+nav ul li a{
+    font-size:30px;
+    text-align:right;
+    text-decoration:none;
+    color:white;
+}
+nav ul :first-child {
+    text-align:left;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /*add this*/
+    color:white;
+    padding:10px;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }

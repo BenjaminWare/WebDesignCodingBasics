@@ -49,11 +49,15 @@
 /*Styles for grid.html*/
 .image-grid {
     display:grid;
+    /*Change 1 fr to a vw amount */
     grid-template-columns:repeat(4,1fr);
-    grid-auto-rows: 24vw;
+    /*start at just 24vw then add the calc to make it square*/
+    grid-auto-rows:calc(100vw/4 - 24px);
     gap:16px;
     padding:16px;
 }
+
+
  img {
     width:100%;
     height:100%;
