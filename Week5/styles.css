@@ -1,17 +1,26 @@
 * {
     margin:0;
     padding:0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body {
     background-color:#333;
+    min-height:150vh;
+}
+nav {
+    background-color:#333;
+    position:sticky;
+    top:0;
+    left:0;
 }
 nav ul{
-    margin:16px;
+    padding:16px;
     list-style-type:none;
     color:white;
     display:grid;
     grid-template-rows:1fr;
     grid-template-columns:1fr 200px 200px 200px;
+    border-bottom:3px white solid;
 }
 nav ul li a{
     font-size:30px;
@@ -48,4 +57,83 @@ nav ul :first-child {
   
     /* Support for IE. */
     font-feature-settings: 'liga';
+
+  }
+  /*do li a:hover first then remove it after showing stuttering*/
+  nav ul li:hover .material-icons {
+    animation: rotate 1s ease 0s 1;
+  }
+  /*Main styles*/
+  img {
+      width:100%;
+      height:100%;
+      /*cover crops, fill stretches*/
+      object-fit:cover;
+  }
+
+  /*Banner Styles*/
+  .banner {
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    margin:48px;
+
+  }
+  .banner img {
+    width:902.41854px;
+    height:826.20679px;
+    justify-self:flex-start;
+  }
+  #rocket {
+      animation:rocketFly 1s linear 3s forwards;
+  }
+  .banner h1 {
+      font-size:120px;
+      color:white;
+      text-align:center;
+      align-self:flex-start;
+      margin-top:250px;
+  }
+
+  /*Index Section styles*/
+  section {
+      display:flex;
+      justify-content:space-around;
+      color:white;
+  }
+  section h2 {
+      font-size:54px;
+  }
+  section p {
+      font-size:24px;
+  }
+  section div {
+      width:40%;
+      margin:5% 0;
+  }
+
+  footer {
+      height:30px;
+      margin-top:100px;
+      border-top: 3px solid white;
+      text-align:center;
+      color:white;
+      font-size:20px;
+      padding-top:5px;
+  }
+  /*Animations*/
+  @keyframes rotate {
+      50% {
+          font-size:28px;
+          padding:0px;
+      }
+      100% {
+          transform:rotateZ(360deg);
+          font-size:24px;
+      }
+  }
+  @keyframes rocketFly {
+      to {
+          transform:translate(-500px, -1000px)
+      }
   }
