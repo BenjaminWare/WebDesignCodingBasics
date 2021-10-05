@@ -5,7 +5,7 @@
 }
 body {
     background-color:#333;
-    min-height:150vh;
+    min-height:100vh;
 }
 nav {
     background-color:#333;
@@ -31,34 +31,7 @@ nav ul li a{
 nav ul :first-child {
     text-align:left;
 }
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    /*add this*/
-    color:white;
-    padding:10px;
-  
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
-    font-feature-settings: 'liga';
 
-  }
   /*do li a:hover first then remove it after showing stuttering*/
   nav ul li:hover .material-icons {
     animation: rotate 1s ease 0s 1;
@@ -80,8 +53,8 @@ nav ul :first-child {
 
   }
   .banner img {
-    width:902.41854px;
-    height:826.20679px;
+    width:903x;
+    height:827px;
     justify-self:flex-start;
   }
   #rocket {
