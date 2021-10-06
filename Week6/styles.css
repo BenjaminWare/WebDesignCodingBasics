@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+header {
+  width: 100%;
+  height: 900px;
+  background-image: url(./images/bannerBackground.svg);
+  background-repeat: no-repeat;
+  background-attachment: local;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+header h1 {
+  font-size: 120px;
+  padding-top: 10%;
+}
+header p {
+  font-size: 40px;
+}
+header svg {
+  width: 55%;
+  padding-top: 15%;
+}
+#line1 {
+  animation: lightUp 0.7s ease 0.7s forwards;
+}
+#line2 {
+  animation: lightUp 0.7s ease 1.4s forwards;
+}
+#line3 {
+  animation: lightUp 0.7s ease 2.1s forwards;
+}
+#You {
+  animation: lightUp 0.7s ease 2.8s forwards;
+}
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 5%;
+}
+
+.card {
+  width: 500px;
+  height: 700px;
+  padding: 50px;
+  border-radius: 50px;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card img {
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+}
+
+footer h2 {
+  padding-top: 10%;
+  padding-left: 10%;
+  font-size: 100px;
+  position: absolute;
+}
+footer svg {
+  position: absolute;
+}
+
+@keyframes lightUp {
+  to {
+    fill: #00ff47;
+  }
+}
+@media only screen and (max-width: 700px) {
+  header h1 {
+    font-size: 80px;
+    padding-top: 30%;
+  }
+  header {
+    display: block;
+  }
+  header svg {
+    padding: 0;
+    margin-top: 300px;
+    width: 100%;
+    height: 700px;
+  }
+}
