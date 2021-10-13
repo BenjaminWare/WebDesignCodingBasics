@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  overflow-x: hidden;
+}
+header {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  /*add after scaling ::before */
+  overflow: hidden;
+}
+header p {
+  /*This 40% comes from the headers width */
+  max-width: 40%;
+  z-index: 1;
+}
+header h1 {
+  z-index: 1;
+}
+/*Psuedo element that is the first child of header*/
+header::before {
+  /*Show some content and switch to after*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #ffafbd, #ffc3a0);
+  /*Show 10% 20% 30% 40% top left -> top right -> bottom right -> bottom left*/
+  /*The slash sets a second radius allowing for an ellipse*/
+  border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+  /*Benefit of before, doesn't adjust anything else, can't have children*/
+  transform: scale(1.5) translateY(-200px);
+}
+.cards {
+  display: grid;
+  gap: 40px;
+  margin: 40px;
+  /*repeat, linear-gradient all functions that do something*/
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 36px;
+}
+.images {
+  display: grid;
+  gap: 40px;
+  margin: 0 calc((100vw - 840px) / 4);
+  /*repeat, linear-gradient all functions that do something*/
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-text {
+  height: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  color: white;
+  border-radius: 50px 300px / 100px 100px;
+}
+.image-text p {
+  max-width: 80%;
+  font-size: 20px;
+}
+@media only screen and (max-width: 768px) {
+  header {
+    font-size: 1em;
+    height: 50vh;
+  }
+  header p {
+    max-width: 90%;
+  }
+  header::before {
+    transform: scaleX(3);
+  }
+  .cards {
+    gap: 20px;
+    margin: 20px;
+  }
+  .images {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0;
+  }
+  .image-text {
+    border-radius: 0;
+  }
+  .image-text p {
+    max-width: 100%;
+    font-size: 16px;
+  }
+  svg {
+    width: 100%;
+  }
+}
