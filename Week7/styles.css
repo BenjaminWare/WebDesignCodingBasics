@@ -7,6 +7,7 @@
 }
 header {
   position: relative;
+  animation: down 1s ease;
   width: 100vw;
   height: 80vh;
   display: flex;
@@ -17,7 +18,6 @@ header {
   font-size: 2rem;
   color: white;
   /*add after scaling ::before */
-  overflow: hidden;
 }
 header p {
   /*This 40% comes from the headers width */
@@ -36,6 +36,7 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
+  box-shadow: 1px 1px 10px 10px #f78080;
   background-image: linear-gradient(45deg, #ffafbd, #ffc3a0);
   /*Show 10% 20% 30% 40% top left -> top right -> bottom right -> bottom left*/
   /*The slash sets a second radius allowing for an ellipse*/
@@ -83,6 +84,14 @@ header::before {
 .image-text p {
   max-width: 80%;
   font-size: 20px;
+}
+@keyframes down {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 0px;
+  }
 }
 @media only screen and (max-width: 768px) {
   header {

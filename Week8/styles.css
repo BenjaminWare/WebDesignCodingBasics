@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+.intro {
+  position: absolute;
+  background-color: rgb(31, 31, 54);
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2; /*Animations that are on top, 2, regular priority content 1*/
+  animation: moveUp 3s ease 3s forwards;
+}
+.intro svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*add last*/
+  animation: fill 1s ease 3s forwards;
+  fill: transparent;
+}
+.intro svg path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.intro svg path:nth-child(1) {
+  stroke-dasharray: 332px;
+  stroke-dashoffset: 332px;
+  animation: letter 1s ease 0s forwards;
+}
+/*
+logo = document.querySelectorAll("path")
+logo[0].getTotalLength()
+...
+*/
+@keyframes letter {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill {
+  to {
+    fill: white;
+  }
+}
+@keyframes moveUp {
+  to {
+    top: -100vh;
+    display: none;
+  }
+}
+.gallery {
+  display: grid;
+  /*remember the column can and will be larger than the card*/
+  grid-template-columns: repeat(4, minmax(20vw, 1fr));
+  gap: 40px;
+  padding: 40px;
+}
+.card {
+  width: 20vw;
+  height: 20vw;
+  position: relative;
+  margin: 0 auto;
+  /*offset-x, offset-y, blur-radius, spread radius*/
+  box-shadow: 3 px 3px 5px 0px black;
+  /*SHOW WEEK 7 CHANGE*/
+  /*When we change opacity this color is seen*/
+  background-color: black;
+  background-image: radial-gradient(#250740 70%, #ac131c);
+  /*These two are equal to doing border radius on img*/
+  border-radius: 25px;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 25px;
+}
+.card p {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  /*The position absolute left:50% sets width to 50% so we reset*/
+  width: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  display: none;
+}
+.card:hover p {
+  display: block;
+}
+.card:hover img {
+  opacity: 70%;
+}
+@media only screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
