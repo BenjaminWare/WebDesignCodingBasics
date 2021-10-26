@@ -42,7 +42,7 @@ logo[0].getTotalLength()
   to {
     stroke-dashoffset: 0;
   }
-}
+} 
 @keyframes fill {
   to {
     fill: white;

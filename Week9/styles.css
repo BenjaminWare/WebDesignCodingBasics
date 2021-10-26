@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  --bg: #316b83;
+  animation: bgRotate 10s linear infinite;
+}
+@keyframes bgRotate {
+  0% {
+    --bg: #316b83;
+  }
+  25% {
+    --bg: #6d8299;
+  }
+  50% {
+    --bg: #8ca1a5;
+  }
+  75% {
+    --bg: #d5bfbf;
+  }
+}
+header {
+  position: relative;
+  background-color: var(--bg);
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  perspective: 8px;
+  perspective-origin: 0%;
+  display: flex;
+}
+
+li:nth-child(odd) {
+  filter: invert(1);
+  display: inline;
+}
+.topPattern {
+  content: "content";
+  top: 0;
+  left: 100%;
+  position: absolute;
+  width: 75vw;
+  height: 75vw;
+  background-color: var(--bg);
+  transform: translate(-50%, -50%);
+  border-radius: 50% 50%;
+  filter: invert(1);
+}
+
+/*(perspective — distance) / perspective = scaleFactor*/
