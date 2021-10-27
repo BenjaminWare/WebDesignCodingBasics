@@ -4,21 +4,30 @@
   box-sizing: border-box;
 }
 html {
-  --bg: #316b83;
+  --bg: rgb(30, 30, 50);
   animation: bgRotate 10s linear infinite;
 }
 @keyframes bgRotate {
   0% {
-    --bg: #316b83;
+    --bg: rgb(30, 60, 50);
   }
-  25% {
-    --bg: #6d8299;
+  15% {
+    --bg: rgb(30, 80, 75);
+  }
+  30% {
+    --bg: rgb(30, 60, 100);
   }
   50% {
-    --bg: #8ca1a5;
+    --bg: rgb(30, 80, 125);
   }
-  75% {
-    --bg: #d5bfbf;
+  70% {
+    --bg: rgb(30, 60, 100);
+  }
+  85% {
+    --bg: rgb(30, 80, 75);
+  }
+  100% {
+    --bg: rgb(30, 60, 50);
   }
 }
 header {
@@ -31,6 +40,13 @@ header {
   perspective: 8px;
   perspective-origin: 0%;
   display: flex;
+}
+ul {
+  position: relative;
+  list-style: none;
+  left: 20%;
+  top: 20%;
+  font-size: 40px;
 }
 
 li:nth-child(odd) {
@@ -48,6 +64,31 @@ li:nth-child(odd) {
   transform: translate(-50%, -50%);
   border-radius: 50% 50%;
   filter: invert(1);
+}
+.wildSquare {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px 50px;
+  /*affects behind square*/
+  backdrop-filter: invert(1);
+  top: 0;
+  left: 0;
+  animation: wild 5s linear infinite;
+}
+@keyframes wild {
+  25% {
+    transform: translate(1200px, 250px) rotate(180deg);
+  }
+  50% {
+    transform: translate(600px, 600px) rotate(0deg);
+  }
+  75% {
+    transform: translate(60px, 600px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /*(perspective — distance) / perspective = scaleFactor*/
