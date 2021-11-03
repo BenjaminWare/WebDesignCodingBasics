@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+header {
+  height: 1000px;
+  width: 100%;
+  background-image: url(./bgTop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 275px;
+  gap: 40px;
+  padding: 20px;
+}
+nav {
+  grid-column: 1 / span 2;
+  height: 275px;
+}
+nav ul {
+  display: grid;
+  list-style: none;
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+h1 {
+  position: relative;
+  backdrop-filter: brightness(60%);
+  transform: rotateZ(-19deg) translateX(-1000px);
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  margin: 50px;
+  border-radius: 30px;
+  animation: titleMove 5s infinite;
+}
+@keyframes titleMove {
+  15% {
+    transform: rotateZ(-19deg) translateX(0px);
+  }
+  80% {
+    transform: rotateZ(-19deg) translateX(0px);
+  }
+  to {
+    transform: rotateZ(-19deg) translateX(3500px);
+  }
+}
+svg {
+  position: relative;
+  top: -35%;
+  width: 1000px;
+}
+#wheel,
+#wheel_2 {
+  animation: wheel 0.5s linear infinite;
+  /*probably tell them this*/
+  transform-origin: center;
+  /*instead of center of svg center of wheel*/
+  transform-box: fill-box;
+}
+@keyframes wheel {
+  to {
+    transform: rotate(-360deg);
+  }
+}
