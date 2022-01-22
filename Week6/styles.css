@@ -5,93 +5,58 @@
   overflow-x: hidden;
   box-sizing: border-box;
 }
+body {
+  background-color:#FFF;
+}
 header {
-  width: 100%;
-  height: 900px;
-  background-image: url(./images/bannerBackground.svg);
-  background-repeat: no-repeat;
-  background-attachment: local;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  color: white;
-  text-align: center;
-  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  align-items:center;
+  justify-content:space-around;
+  margin-top:50px;
 }
-header h1 {
-  font-size: 120px;
-  padding-top: 10%;
+.header-title {
+  text-align:center;
+  font-size:32px;
 }
-header p {
-  font-size: 40px;
+.quote::after{
+  content:'"';
+  color:#00ff47;
 }
-header svg {
-  width: 55%;
-  padding-top: 15%;
+.quote::before{
+  content:'"';
+  color:#00ff47;
+}
+.green {
+  display:inline;
+  color:#00ff47;
 }
 #line1 {
-  animation: lightUp 0.7s ease 0.7s forwards;
+  animation: lightUp 5s ease 0.7s forwards infinite;
 }
 #line2 {
-  animation: lightUp 0.7s ease 1.4s forwards;
+  animation: lightUp 5s ease 1.4s forwards infinite;
 }
 #line3 {
-  animation: lightUp 0.7s ease 2.1s forwards;
+  animation: lightUp 5s ease 2.1s forwards infinite;
 }
-#You {
-  animation: lightUp 0.7s ease 2.8s forwards;
-}
-.cards {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 5%;
-}
-
-.card {
-  width: 500px;
-  height: 700px;
-  padding: 50px;
-  border-radius: 50px;
-  background-color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.card img {
-  width: 400px;
-  height: 400px;
-  margin: 50px;
-}
-
-footer h2 {
-  padding-top: 10%;
-  padding-left: 10%;
-  font-size: 100px;
-  position: absolute;
-}
-footer svg {
-  position: absolute;
+#User {
+  animation: lightUp 5s ease 2.8s forwards infinite;
 }
 
 @keyframes lightUp {
-  to {
+  10% {
     fill: #00ff47;
+  }
+  50% {
+    fill: #00ff47;
+  }
+  60% {
+    fill:#3F3D56;
+  }
+  100% {
+    fill:#3F3D56;
   }
 }
 
-header h1 {
-  font-size: 80px;
-  padding-top: 30%;
-}
-@media only screen and (max-width: 700px) {
-  header {
-    display: block;
-  }
-  header svg {
-    padding: 0;
-    margin-top: 300px;
-    width: 100%;
-    height: 700px;
-  }
-}

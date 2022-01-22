@@ -19,17 +19,20 @@
     /*Do after adding flex-shrink*/
     flex-wrap:wrap;
 }
-.parent :first-child {
+/* -child() psuedo selector is placed on the child in the list*/
+.parent div:first-child {
     background-color:blue;
     /*Add after*/
     flex-shrink:0;
 }
-.parent :nth-child(2) {
+.parent div:nth-child(2) {
     background-color:orange;
 }
 .parent :last-child {
     background-color: violet;
 }
+
+
 /*go back and change to column-reverse*/
 
 /*add example2*/
@@ -45,6 +48,35 @@
     width:200px;
     height:200px;
     background-color:brown;
+}
+
+.example2:before {
+    content:"";
+    width:200px;
+    height:200px;
+    background-color:orange;
+    /*add after*/
+    position:absolute;
+    transform:rotate(30deg);
+    /*animation: 1s loop ease infinite forwards;*/
+}
+.example2:after {
+    
+    content:"";
+    width:200px;
+    height:200px;
+    background-color:orange;
+    /*add after*/
+    position:absolute;
+    transform:rotate(60deg);
+    /*animation: 1s loop 0.3s ease infinite forwards;*/
+}
+/*IMPORTANT DO THIS WEEK 4*/
+@keyframes loop {
+    100% {
+        transform:rotate(90deg);
+    }
+
 }
 /*Styles for grid.html*/
 .image-grid {
