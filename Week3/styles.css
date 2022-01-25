@@ -1,96 +1,95 @@
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .parent div {
-    width:200px;
-    height:200px;
-    margin:50px;
-    background-color:red;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  background-color: red;
+  /*flex-shrink: 0; add after justify-content and making all 9*/
 }
 .parent {
-    /*talk about display block first */
-    display:flex;
-    /*show direction column and column-reverse*/
-    flex-direction:row;
-    /*DO this after below lines*/
-    justify-content:center; /*try space between*/ 
-    /*Do after adding flex-shrink*/
-    flex-wrap:wrap;
+  /*talk about display block first */
+  display: flex;
+  /*show direction column and column-reverse*/
+  flex-direction: row;
+  /*DO this after below lines*/
+  justify-content: center; /*try space between*/
+  /*Do after adding flex-shrink*/
+  flex-wrap: wrap;
 }
-.parent :first-child {
-    background-color:blue;
-    /*Add after*/
-    flex-shrink:0;
+.parent div:first-child {
+  background-color: blue;
+  /*Add after*/
 }
-.parent :nth-child(2) {
-    background-color:orange;
+.parent div:nth-child(4) {
+  background-color: orange;
 }
-.parent :last-child {
-    background-color: violet;
+.parent div:last-child {
+  background-color: violet;
 }
 /*go back and change to column-reverse*/
 
 /*add example2*/
 .example2 {
-    height:100vh;
-    width:100vw;
-    display:flex;
-    /*do start, center, and end*/
-    align-items:center;
-    justify-content:center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  /*do start, center, and end*/
+  align-items: center;
+  justify-content: center;
 }
 .centered {
-    width:200px;
-    height:200px;
-    background-color:brown;
+  width: 200px;
+  height: 200px;
+  background-color: brown;
 }
 /*Styles for grid.html*/
 .image-grid {
-    display:grid;
-    /*Change 1 fr to a vw amount */
-    grid-template-columns:repeat(4,1fr);
-    /*start at just 24vw then add the calc to make it square*/
-    grid-auto-rows:calc(100vw/4 - 24px);
-    gap:16px;
-    padding:16px;
+  display: grid;
+  /*Change 1 fr to a vw amount */
+  grid-template-columns: repeat(4, 1fr);
+  /*start at just 24vw then add the calc to make it square*/
+  grid-auto-rows: calc(100vw / 4 - 24px);
+  gap: 16px;
+  padding: 16px;
 }
 
-
- img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .image-grid :first-child {
-    grid-row:span 2;
-    grid-column:span 3;
+  grid-row: span 2;
+  grid-column: span 3;
 }
 .image-grid :last-child {
-    /*starts at 2 goes till the start of 5*/
-    /*also show 1/4*/
-    grid-column:2 / 5;
+  /*starts at 2 goes till the start of 5*/
+  /*also show 1/4*/
+  grid-column: 2 / 5;
 }
 .grid-2 {
-    display:grid;
-    grid-template-columns:500px 1fr;
-    grid-template-rows:100px auto 100px;
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  grid-template-rows: 100px auto 100px;
 }
 .grid-2 > * {
-    background-color:blanchedalmond;
-    border: 3px solid red;
-    width:100%; 
+  background-color: blanchedalmond;
+  border: 3px solid red;
+  width: 100%;
 }
 main {
-    height:500px;
+  height: 500px;
 }
 header {
-    grid-column:span 2;
+  grid-column: span 2;
 }
 aside {
-    height:500px;
+  height: 500px;
 }
 footer {
-    grid-column:span 2;
+  grid-column: span 2;
 }
