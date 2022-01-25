@@ -82,9 +82,10 @@
   /*Change 1 fr to a vw amount */
   grid-template-columns: repeat(4, 1fr);
   /*start at just 24vw then add the calc to make it square*/
-  grid-auto-rows: calc(100vw / 4 - 24px);
+  grid-auto-rows: calc(100vw / 4 - 20px);
   gap: 16px;
   padding: 16px;
+  /*5*16 = 80 /4 = 20px */
 }
 
 img {
@@ -92,6 +93,7 @@ img {
   height: 100%;
   object-fit: cover;
 }
+
 .image-grid :first-child {
   grid-row: span 2;
   grid-column: span 3;
