@@ -1,112 +1,106 @@
-* {
-    margin:0;
-    padding:0;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.parent {
+    width:500px;
+    height:500px;
+    position:absolute;
+    top: 50%; 
+    right: 50%;
+    transform: translate(50%,-50%);
+    background-color:red;
+    /*add after making rainbow*/
+    animation:rainbow 5s infinite linear 5s forwards
 }
-body {
-    background-color:#333;
-    min-height:100vh;
-}
-nav {
-    background-color:#333;
-    position:sticky;
-    top:0;
-    left:0;
-}
-nav ul{
-    padding:16px;
-    list-style-type:none;
-    color:white;
-    display:grid;
-    grid-template-rows:1fr;
-    grid-template-columns:1fr 200px 200px 200px;
-    border-bottom:3px white solid;
-}
-nav ul li a{
-    font-size:30px;
-    text-align:right;
-    text-decoration:none;
-    color:white;
-}
-nav ul :first-child {
-    text-align:left;
-}
+.parent div {
+    width:100px;
+    height:100px;
+    background-color:aqua;
+    /*Name, duration,repeats, timing function, delay, fill mode*/
+    /*try negative delay*/
+    animation:move 3s infinite ease 2s forwards;
 
-  /*do li a:hover first then remove it after showing stuttering*/
-  nav ul li:hover .material-icons {
-    animation: rotate 1s ease 0s 1;
-  }
-  /*Main styles*/
-  img {
-      width:100%;
-      height:100%;
-      /*cover crops, fill stretches*/
-      object-fit:cover;
-  }
-
-  /*Banner Styles*/
-  .banner {
+}
+@keyframes move{
+    to {
+        transform:translate(400px, 400px);
+    }
+    30% {
+        transform:translate(200px,300px);
+    }
+    60% {
+        transform:translate(350px,50px) rotate(180deg);
+        
+    }
+    100% {
+        transform:translate(0px,0px);
+    }
+}
+@keyframes rainbow{
+    10% {
+        background-color:red;
+    }
+    25% {
+        background-color:orange;
+    }
+    40% {
+        background-color:yellow;
+    }
+    55% {
+        background-color:green;
+    }
+    70% {
+        background-color:blue;
+    }
+    85% {
+        background-color:purple;
+    }
+    100% {
+        background-color:red;
+    }
+}
+.flexContainer {
     display:flex;
-    justify-content:space-evenly;
+    justify-content:center;
     align-items:center;
-    margin:48px;
+    margin-top:100vh;
+}
+/*add classes to svg*/
+.dot {
+    fill:rgb(61, 134, 230);
+    /*Stroke is exterior, width is width, dasharray is dashes with space */
+    stroke:rgb(48, 183, 236);
+    stroke-width:5px;
+    stroke-dasharray:200px;
+    animation: dotStroke infinite 3s ease;
+}
+.tail {
+    fill:rgb(61, 134, 230);
+    stroke:rgb(48, 183, 236);
+    stroke-width:5px;
+    /*whate we rotate around*/
+    transform-origin: 600px 250px;
+    animation: tailMove infinite 3s ease;
+    transform:rotateZ(-10deg) translate(-134px, -189px);
+}
 
-  }
-  .banner img {
-    width:903x;
-    height:827px;
-    justify-self:flex-start;
-  }
-  #rocket {
-      animation:rocketFly 1s linear 3s forwards;
-  }
-  .banner h1 {
-      font-size:120px;
-      color:white;
-      text-align:center;
-      align-self:flex-start;
-      margin-top:250px;
-  }
+@keyframes dotStroke {
+    from {
+        stroke-dasharray:0px;
+        stroke-width:2px;
+    }
+    50% {
+        stroke-dasharray:200px;
+        stroke-width:8px;
+    }
+    to {
+        stroke-dasharray:0px;
+    }
+}
+@keyframes tailMove {
 
-  /*Index Section styles*/
-  section {
-      display:flex;
-      justify-content:space-around;
-      color:white;
-  }
-  section h2 {
-      font-size:54px;
-  }
-  section p {
-      font-size:24px;
-  }
-  section div {
-      width:40%;
-      margin:5% 0;
-  }
-
-  footer {
-      height:30px;
-      margin-top:100px;
-      border-top: 3px solid white;
-      text-align:center;
-      color:white;
-      font-size:20px;
-      padding-top:5px;
-  }
-  /*Animations*/
-  @keyframes rotate {
-      50% {
-          font-size:28px;
-          padding:0px;
-      }
-      100% {
-          transform:rotateZ(360deg);
-          font-size:24px;
-      }
-  }
-  @keyframes rocketFly {
-      to {
-          transform:translate(-500px, -1000px)
-      }
-  }
+    50% {
+        transform:rotateZ(10deg) translate(-134px, -189px);
+    }
+    to {
+        /*translate comes from the svg itself must be preserved*/
+        transform:rotateZ(-10deg) translate(-134px, -189px);
+    }
+}

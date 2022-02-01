@@ -1,106 +1,67 @@
-.parent {
-    width:500px;
-    height:500px;
-    position:absolute;
-    top: 50%; 
-    right: 50%;
-    transform: translate(50%,-50%);
-    background-color:red;
-    /*add after making rainbow*/
-    animation:rainbow 5s infinite linear 5s forwards
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --bg-color: brown;
 }
-.parent div {
-    width:100px;
-    height:100px;
-    background-color:aqua;
-    /*Name, duration,repeats, timing function, delay, fill mode*/
-    /*try negative delay*/
-    animation:move 3s infinite ease 2s forwards;
-
-}
-@keyframes move{
-    to {
-        transform:translate(400px, 400px);
-    }
-    30% {
-        transform:translate(200px,300px);
-    }
-    60% {
-        transform:translate(350px,50px) rotate(180deg);
-        
-    }
-    100% {
-        transform:translate(0px,0px);
-    }
-}
-@keyframes rainbow{
-    10% {
-        background-color:red;
-    }
-    25% {
-        background-color:orange;
-    }
-    40% {
-        background-color:yellow;
-    }
-    55% {
-        background-color:green;
-    }
-    70% {
-        background-color:blue;
-    }
-    85% {
-        background-color:purple;
-    }
-    100% {
-        background-color:red;
-    }
-}
-.flexContainer {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:100vh;
-}
-/*add classes to svg*/
-.dot {
-    fill:rgb(61, 134, 230);
-    /*Stroke is exterior, width is width, dasharray is dashes with space */
-    stroke:rgb(48, 183, 236);
-    stroke-width:5px;
-    stroke-dasharray:200px;
-    animation: dotStroke infinite 3s ease;
-}
-.tail {
-    fill:rgb(61, 134, 230);
-    stroke:rgb(48, 183, 236);
-    stroke-width:5px;
-    /*whate we rotate around*/
-    transform-origin: 600px 250px;
-    animation: tailMove infinite 3s ease;
-    transform:rotateZ(-10deg) translate(-134px, -189px);
+body {
+  /*show this is unnecessary at the end*/
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes dotStroke {
-    from {
-        stroke-dasharray:0px;
-        stroke-width:2px;
-    }
-    50% {
-        stroke-dasharray:200px;
-        stroke-width:8px;
-    }
-    to {
-        stroke-dasharray:0px;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: var(--bg-color);
+  color: white;
 }
-@keyframes tailMove {
 
-    50% {
-        transform:rotateZ(10deg) translate(-134px, -189px);
-    }
-    to {
-        /*translate comes from the svg itself must be preserved*/
-        transform:rotateZ(-10deg) translate(-134px, -189px);
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+}
+header h1 {
+  font-size: 64px;
+}
+nav ul li {
+  margin: 25px;
+  font-size: 32px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 100px;
+  margin: 25px;
+  min-height: calc(100vh - 136px - 90px);
+}
+
+.bear {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 16px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  color: white;
+
+  justify-content: space-evenly;
+  height: 600px;
+}
+.bear img {
+  width: 100%;
+}
+.bear p {
+  margin: 16px;
+}
+footer {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 40px;
 }

@@ -1,75 +1,138 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+}
+html {
+  --bg: rgb(30, 30, 50);
+  animation: bgRotate 10s linear infinite;
+}
+/*could make bg a gradient and change the degree*/
+@keyframes bgRotate {
+  0% {
+    --bg: rgb(30, 60, 50);
+  }
+  15% {
+    --bg: rgb(30, 80, 75);
+  }
+  30% {
+    --bg: rgb(30, 60, 100);
+  }
+  50% {
+    --bg: rgb(30, 80, 125);
+  }
+  70% {
+    --bg: rgb(30, 60, 100);
+  }
+  85% {
+    --bg: rgb(30, 80, 75);
+  }
+  100% {
+    --bg: rgb(30, 60, 50);
+  }
 }
 header {
-  height: 1000px;
+  position: relative;
+  background-color: var(--bg);
   width: 100%;
-  background-image: url(./bgTop.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 275px;
-  gap: 40px;
-  padding: 20px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 8px;
+  perspective-origin: 0%;
+  display: flex;
 }
-nav {
-  grid-column: 1 / span 2;
-  height: 275px;
-}
-nav ul {
-  display: grid;
+ul {
+  position: relative;
   list-style: none;
-  width: 800px;
-  position: relative;
-  margin: 0 auto;
-  color: white;
+  left: 20%;
+  top: 20%;
   font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  grid-template-columns: repeat(3, 1fr);
 }
-h1 {
+
+li:nth-child(odd) {
+  filter: invert(1);
+  display: inline;
+}
+.topPattern {
+  content: "content";
+  top: 0;
+  left: 100%;
+  position: absolute;
+  width: 75vw;
+  height: 75vw;
+  background-color: var(--bg);
+  transform: translate(-50%, -50%);
+  border-radius: 50% 50%;
+  filter: invert(1);
+}
+.wildSquare {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px 50px;
+  /*affects behind square*/
+  backdrop-filter: invert(1);
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  animation: wild 5s linear 1s infinite;
+}
+@keyframes wild {
+  25% {
+    transform: translate(1200px, 250px) rotate(180deg);
+  }
+  50% {
+    transform: translate(600px, 600px) rotate(0deg);
+  }
+  75% {
+    transform: translate(60px, 600px) rotate(180deg);
+    background-color: var(--bg); /*fix for chrome idk probably don't use it*/
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+/*(perspective — distance) / perspective = scaleFactor*/
+
+.parallax-container {
   position: relative;
-  backdrop-filter: brightness(60%);
-  transform: rotateZ(-19deg) translateX(-1000px);
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  perspective: 10px;
+  perspective-origin: 0%;
+  display: flex;
+}
+.parallax-container::-webkit-scrollbar {
+  display: none;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0px);
+}
+
+.foreground {
+  margin-top: 100px;
+  margin-bottom: 20px;
+  transform-origin: 0;
+  transform: translateZ(5px) scale(0.5); /*10- 5 / 10*/
+}
+
+.foreground p {
+  margin: 10px;
   color: white;
-  text-align: center;
-  font-size: 60px;
-  margin: 50px;
-  border-radius: 30px;
-  animation: titleMove 5s infinite;
+  font-size: 24px;
+  max-width: 60%;
+  margin: 0 auto;
 }
-@keyframes titleMove {
-  15% {
-    transform: rotateZ(-19deg) translateX(0px);
-  }
-  80% {
-    transform: rotateZ(-19deg) translateX(0px);
-  }
-  to {
-    transform: rotateZ(-19deg) translateX(3500px);
-  }
-}
-svg {
-  position: relative;
-  top: -35%;
-  width: 1000px;
-}
-#wheel,
-#wheel_2 {
-  animation: wheel 0.5s linear infinite;
-  /*probably tell them this*/
-  transform-origin: center;
-  /*instead of center of svg center of wheel*/
-  transform-box: fill-box;
-}
-@keyframes wheel {
-  to {
-    transform: rotate(-360deg);
-  }
+.spacer {
+  height: 10vh;
+  background-color: #c10000;
 }

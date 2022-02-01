@@ -2,116 +2,125 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   overflow-x: hidden;
 }
-.intro {
-  position: absolute;
-  background-color: rgb(31, 31, 54);
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 2; /*Animations that are on top, 2, regular priority content 1*/
-  animation: moveUp 3s ease 3s forwards;
-}
-.intro svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /*add last*/
-  animation: fill 1s ease 3s forwards;
-  fill: transparent;
-}
-.intro svg path {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.intro svg path:nth-child(1) {
-  stroke-dasharray: 332px;
-  stroke-dashoffset: 332px;
-  animation: letter 1s ease 0s forwards;
-}
-/*
-logo = document.querySelectorAll("path")
-logo[0].getTotalLength()
-...
-*/
-@keyframes letter {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes fill {
-  to {
-    fill: white;
-  }
-}
-@keyframes moveUp {
-  to {
-    top: -100vh;
-    display: none;
-  }
-}
-.gallery {
-  display: grid;
-  /*remember the column can and will be larger than the card*/
-  grid-template-columns: repeat(4, minmax(20vw, 1fr));
-  gap: 40px;
-  padding: 40px;
-}
-.card {
-  width: 20vw;
-  height: 20vw;
+header {
   position: relative;
-  margin: 0 auto;
-  /*offset-x, offset-y, blur-radius, spread radius*/
-  box-shadow: 3 px 3px 5px 0px black;
-  /*SHOW WEEK 7 CHANGE*/
-  /*When we change opacity this color is seen*/
-  background-color: black;
-  background-image: radial-gradient(#250740 70%, #ac131c);
-  /*These two are equal to doing border radius on img*/
-  border-radius: 25px;
-  overflow: hidden;
+  animation: down 1s ease;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  /*add after scaling ::before */
 }
-.card img {
+header p {
+  /*This 40% comes from the headers width */
+  max-width: 40%;
+  z-index: 1;
+}
+header h1 {
+  z-index: 1;
+}
+/*Psuedo element that is the first child of header*/
+header::before {
+  /*Show some content and switch to after*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-
-  border-radius: 25px;
+  box-shadow: 1px 1px 10px 10px #f78080;
+  background-image: linear-gradient(45deg, #ffafbd, #ffc3a0);
+  /*Show 10% 20% 30% 40% top left -> top right -> bottom right -> bottom left*/
+  /*The slash sets a second radius allowing for an ellipse*/
+  border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+  /*Benefit of before, doesn't adjust anything else, can't have children*/
+  transform: scale(1.5) translateY(-200px);
 }
-.card p {
-  position: absolute;
+.cards {
+  display: grid;
+  gap: 40px;
+  margin: 40px;
+  /*repeat, linear-gradient all functions that do something*/
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 50%;
-  left: 50%;
-  /*The position absolute left:50% sets width to 50% so we reset*/
-  width: 80%;
-  transform: translate(-50%, -50%);
   color: white;
-  font-size: 24px;
-  display: none;
+  font-size: 36px;
 }
-.card:hover p {
-  display: block;
+.images {
+  display: grid;
+  gap: 40px;
+  margin: 0 calc((100vw - 840px) / 4);
+  /*repeat, linear-gradient all functions that do something*/
+  grid-template-columns: 1fr 1fr;
 }
-.card:hover img {
-  opacity: 70%;
-  transform: scale(1.1);
+
+.image-text {
+  height: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  color: white;
+  border-radius: 50px 300px / 100px 100px;
+}
+.image-text p {
+  max-width: 80%;
+  font-size: 20px;
+}
+@keyframes down {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 0px;
+  }
 }
 @media only screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
+  header {
+    font-size: 1em;
+    height: 50vh;
   }
-  .card {
-    width: 300px;
-    height: 300px;
+  header p {
+    max-width: 90%;
   }
-}
-@media only screen and (max-width: 375px) {
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
+  header::before {
+    transform: scaleX(3);
+  }
+  .cards {
+    gap: 20px;
+    margin: 20px;
+  }
+  .images {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0;
+  }
+  .image-text {
+    border-radius: 0;
+  }
+  .image-text p {
+    max-width: 100%;
+    font-size: 16px;
+  }
+  svg {
+    width: 100%;
   }
 }

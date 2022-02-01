@@ -1,62 +1,112 @@
 * {
-  padding: 0;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body {
-  background-color:#FFF;
+    background-color:#333;
+    min-height:100vh;
 }
-header {
-  display:flex;
-  flex-direction:column;
-  height:100vh;
-  align-items:center;
-  justify-content:space-around;
-  margin-top:50px;
+nav {
+    background-color:#333;
+    position:sticky;
+    top:0;
+    left:0;
 }
-.header-title {
-  text-align:center;
-  font-size:32px;
+nav ul{
+    padding:16px;
+    list-style-type:none;
+    color:white;
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns:1fr 200px 200px 200px;
+    border-bottom:3px white solid;
 }
-.quote::after{
-  content:'"';
-  color:#00ff47;
+nav ul li a{
+    font-size:30px;
+    text-align:right;
+    text-decoration:none;
+    color:white;
 }
-.quote::before{
-  content:'"';
-  color:#00ff47;
-}
-.green {
-  display:inline;
-  color:#00ff47;
-}
-#line1 {
-  animation: lightUp 5s ease 0.7s forwards infinite;
-}
-#line2 {
-  animation: lightUp 5s ease 1.4s forwards infinite;
-}
-#line3 {
-  animation: lightUp 5s ease 2.1s forwards infinite;
-}
-#User {
-  animation: lightUp 5s ease 2.8s forwards infinite;
+nav ul :first-child {
+    text-align:left;
 }
 
-@keyframes lightUp {
-  10% {
-    fill: #00ff47;
+  /*do li a:hover first then remove it after showing stuttering*/
+  nav ul li:hover .material-icons {
+    animation: rotate 1s ease 0s 1;
   }
-  50% {
-    fill: #00ff47;
+  /*Main styles*/
+  img {
+      width:100%;
+      height:100%;
+      /*cover crops, fill stretches*/
+      object-fit:cover;
   }
-  60% {
-    fill:#3F3D56;
-  }
-  100% {
-    fill:#3F3D56;
-  }
-}
 
+  /*Banner Styles*/
+  .banner {
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    margin:48px;
+
+  }
+  .banner img {
+    width:903x;
+    height:827px;
+    justify-self:flex-start;
+  }
+  #rocket {
+      animation:rocketFly 1s linear 3s forwards;
+  }
+  .banner h1 {
+      font-size:120px;
+      color:white;
+      text-align:center;
+      align-self:flex-start;
+      margin-top:250px;
+  }
+
+  /*Index Section styles*/
+  section {
+      display:flex;
+      justify-content:space-around;
+      color:white;
+  }
+  section h2 {
+      font-size:54px;
+  }
+  section p {
+      font-size:24px;
+  }
+  section div {
+      width:40%;
+      margin:5% 0;
+  }
+
+  footer {
+      height:30px;
+      margin-top:100px;
+      border-top: 3px solid white;
+      text-align:center;
+      color:white;
+      font-size:20px;
+      padding-top:5px;
+  }
+  /*Animations*/
+  @keyframes rotate {
+      50% {
+          font-size:28px;
+          padding:0px;
+      }
+      100% {
+          transform:rotateZ(360deg);
+          font-size:24px;
+      }
+  }
+  @keyframes rocketFly {
+      to {
+          transform:translate(-500px, -1000px)
+      }
+  }

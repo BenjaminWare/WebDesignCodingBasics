@@ -2,137 +2,116 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  overflow-x: hidden;
 }
-html {
-  --bg: rgb(30, 30, 50);
-  animation: bgRotate 10s linear infinite;
-}
-/*could make bg a gradient and change the degree*/
-@keyframes bgRotate {
-  0% {
-    --bg: rgb(30, 60, 50);
-  }
-  15% {
-    --bg: rgb(30, 80, 75);
-  }
-  30% {
-    --bg: rgb(30, 60, 100);
-  }
-  50% {
-    --bg: rgb(30, 80, 125);
-  }
-  70% {
-    --bg: rgb(30, 60, 100);
-  }
-  85% {
-    --bg: rgb(30, 80, 75);
-  }
-  100% {
-    --bg: rgb(30, 60, 50);
-  }
-}
-header {
-  position: relative;
-  background-color: var(--bg);
-  width: 100%;
+.intro {
+  position: absolute;
+  background-color: rgb(31, 31, 54);
+  top: 0;
+  width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  perspective: 8px;
-  perspective-origin: 0%;
-  display: flex;
+  z-index: 2; /*Animations that are on top, 2, regular priority content 1*/
+  animation: moveUp 3s ease 3s forwards;
 }
-ul {
-  position: relative;
-  list-style: none;
-  left: 20%;
-  top: 20%;
-  font-size: 40px;
-}
-
-li:nth-child(odd) {
-  filter: invert(1);
-  display: inline;
-}
-.topPattern {
-  content: "content";
-  top: 0;
-  left: 100%;
+.intro svg {
   position: absolute;
-  width: 75vw;
-  height: 75vw;
-  background-color: var(--bg);
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 50% 50%;
-  filter: invert(1);
+  /*add last*/
+  animation: fill 1s ease 3s forwards;
+  fill: transparent;
 }
-.wildSquare {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px 50px;
-  /*affects behind square*/
-  backdrop-filter: invert(1);
-  top: 0;
-  left: 0;
-  transform: translate(0, 0);
-  animation: wild 5s linear 1s infinite;
+.intro svg path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-@keyframes wild {
-  25% {
-    transform: translate(1200px, 250px) rotate(180deg);
-  }
-  50% {
-    transform: translate(600px, 600px) rotate(0deg);
-  }
-  75% {
-    transform: translate(60px, 600px) rotate(180deg);
-    background-color: var(--bg); /*fix for chrome idk probably don't use it*/
-  }
-  100% {
-    transform: translate(0, 0);
+.intro svg path:nth-child(1) {
+  stroke-dasharray: 332px;
+  stroke-dashoffset: 332px;
+  animation: letter 1s ease 0s forwards;
+}
+/*
+logo = document.querySelectorAll("path")
+logo[0].getTotalLength()
+...
+*/
+@keyframes letter {
+  to {
+    stroke-dashoffset: 0;
   }
 }
-/*(perspective — distance) / perspective = scaleFactor*/
-
-.parallax-container {
+@keyframes fill {
+  to {
+    fill: white;
+  }
+}
+@keyframes moveUp {
+  to {
+    top: -100vh;
+    display: none;
+  }
+}
+.gallery {
+  display: grid;
+  /*remember the column can and will be larger than the card*/
+  grid-template-columns: repeat(4, minmax(20vw, 1fr));
+  gap: 40px;
+  padding: 40px;
+}
+.card {
+  width: 20vw;
+  height: 20vw;
   position: relative;
+  margin: 0 auto;
+  /*offset-x, offset-y, blur-radius, spread radius*/
+  box-shadow: 3 px 3px 5px 0px black;
+  /*SHOW WEEK 7 CHANGE*/
+  /*When we change opacity this color is seen*/
+  background-color: black;
+  background-image: radial-gradient(#250740 70%, #ac131c);
+  /*These two are equal to doing border radius on img*/
+  border-radius: 25px;
+  overflow: hidden;
+}
+.card img {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  perspective: 10px;
-  perspective-origin: 0%;
-  display: flex;
-}
-.parallax-container::-webkit-scrollbar {
-  display: none;
-}
 
-.background {
+  border-radius: 25px;
+}
+.card p {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateZ(0px);
-}
-
-.foreground {
-  margin-top: 100px;
-  margin-bottom: 20px;
-  transform-origin: 0;
-  transform: translateZ(5px) scale(0.5); /*10- 5 / 10*/
-}
-
-.foreground p {
-  margin: 10px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  /*The position absolute left:50% sets width to 50% so we reset*/
+  width: 80%;
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 24px;
-  max-width: 60%;
-  margin: 0 auto;
+  display: none;
 }
-.spacer {
-  height: 10vh;
-  background-color: #c10000;
+.card:hover p {
+  display: block;
+}
+.card:hover img {
+  opacity: 70%;
+  transform: scale(1.1);
+}
+@media only screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
