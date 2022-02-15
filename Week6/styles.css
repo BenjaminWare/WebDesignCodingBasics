@@ -1,112 +1,99 @@
 * {
-    margin:0;
-    padding:0;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 body {
-    background-color:#333;
-    min-height:100vh;
+  background-color: #333;
+  min-height: 100vh;
 }
 nav {
-    background-color:#333;
-    position:sticky;
-    top:0;
-    left:0;
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
-nav ul{
-    padding:16px;
-    list-style-type:none;
-    color:white;
-    display:grid;
-    grid-template-rows:1fr;
-    grid-template-columns:1fr 200px 200px 200px;
-    border-bottom:3px white solid;
+nav ul {
+  padding: 16px;
+  list-style-type: none;
+  color: white;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 200px 200px 200px;
+  border-bottom: 3px white solid;
 }
-nav ul li a{
-    font-size:30px;
-    text-align:right;
-    text-decoration:none;
-    color:white;
+nav ul li a {
+  font-size: 30px;
+  text-align: right;
+  text-decoration: none;
+  color: white;
 }
 nav ul :first-child {
-    text-align:left;
+  text-align: left;
 }
 
-  /*do li a:hover first then remove it after showing stuttering*/
-  nav ul li:hover .material-icons {
-    animation: rotate 1s ease 0s 1;
-  }
-  /*Main styles*/
-  img {
-      width:100%;
-      height:100%;
-      /*cover crops, fill stretches*/
-      object-fit:cover;
-  }
+/*do li a:hover first then remove it after showing stuttering*/
+nav ul li:hover .material-icons {
+  animation: rotate 1s ease 0s 1;
+}
+/*Banner Styles*/
+.banner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 48px;
+}
+#rocket {
+  animation: rocketFly 1s linear 3s forwards;
+}
+.banner h1 {
+  font-size: 120px;
+  color: white;
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 250px;
+}
 
-  /*Banner Styles*/
-  .banner {
-    display:flex;
-    justify-content:space-evenly;
-    align-items:center;
-    margin:48px;
+/*Index Section styles*/
+section {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+section h2 {
+  font-size: 54px;
+}
+section p {
+  font-size: 24px;
+}
+section div {
+  width: 40%;
+  margin: 5% 0;
+}
 
+footer {
+  height: 30px;
+  margin-top: 100px;
+  border-top: 3px solid white;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  padding-top: 5px;
+}
+/*Animations*/
+@keyframes rotate {
+  50% {
+    font-size: 28px;
+    padding: 0px;
   }
-  .banner img {
-    width:903x;
-    height:827px;
-    justify-self:flex-start;
+  100% {
+    transform: rotateZ(360deg);
+    font-size: 24px;
   }
-  #rocket {
-      animation:rocketFly 1s linear 3s forwards;
+}
+@keyframes rocketFly {
+  to {
+    transform: translate(-500px, -1000px);
   }
-  .banner h1 {
-      font-size:120px;
-      color:white;
-      text-align:center;
-      align-self:flex-start;
-      margin-top:250px;
-  }
-
-  /*Index Section styles*/
-  section {
-      display:flex;
-      justify-content:space-around;
-      color:white;
-  }
-  section h2 {
-      font-size:54px;
-  }
-  section p {
-      font-size:24px;
-  }
-  section div {
-      width:40%;
-      margin:5% 0;
-  }
-
-  footer {
-      height:30px;
-      margin-top:100px;
-      border-top: 3px solid white;
-      text-align:center;
-      color:white;
-      font-size:20px;
-      padding-top:5px;
-  }
-  /*Animations*/
-  @keyframes rotate {
-      50% {
-          font-size:28px;
-          padding:0px;
-      }
-      100% {
-          transform:rotateZ(360deg);
-          font-size:24px;
-      }
-  }
-  @keyframes rocketFly {
-      to {
-          transform:translate(-500px, -1000px)
-      }
-  }
+}
